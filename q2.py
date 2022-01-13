@@ -1,11 +1,17 @@
-l = 0
-ml = 0
+import pandas as pd
 
-for i in range(int(input("number of cases"))):
-    volume = list(map(int, input("the volume : ").split()))
-    l += volume[0]
-    ml += volume[1]
+def grade(marks):
+    if marks >= 90:
+        return "A"
+    if marks >= 80:
+        return "B"
+    if marks >= 60:
+        return "C"
+    else: 
+        return "F"
 
-l += ml//1000
-print(f"{l} l and {ml%1000} ml")
-
+print(pd.DataFrame({
+    "Marks-1":list(map(grade, eval(input()))), 
+    "Marks-2":list(map(grade, eval(input())))
+    }, 
+["Maths", "Eng", "Cs", "Phy", "Che", "Bio"]))
